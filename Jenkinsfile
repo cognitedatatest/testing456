@@ -38,7 +38,6 @@ podTemplate(
             imageRevision = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
             buildDate = sh(returnStdout: true, script: 'date +%Y-%m-%dT%H%M').trim()
             dockerImageTag = "${buildDate}-${imageRevision}"
-            version = sh(returnStdout: true, script: 'cat version.txt').trim()
         }
 
         stage('Build GCP metadata') {
