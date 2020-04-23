@@ -30,11 +30,6 @@ podTemplate(
         )
     ],
     volumes: [
-        secretVolume(
-            secretName: 'jenkins-docker-builder',
-            mountPath: '/jenkins-docker-builder',
-            readOnly: true
-        ),
         hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]) {
     properties([buildDiscarder(logRotator(daysToKeepStr: '30', numToKeepStr: '20'))])
     node(label) {
